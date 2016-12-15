@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="1px"
+    android:layout_marginLeft="1px"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_zhanwei" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/abc_list_selector_disabled_holo_dark">
+
+        <TextView
+            android:id="@+id/enName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/divider"
+            android:layout_toLeftOf="@+id/divider"
+            android:text="TOP10"
+            android:textColor="@color/menu_text"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:text="|"
+            android:textColor="@color/menu_text" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/enName"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/divider"
+            android:text="本周精选"
+            android:textColor="@color/menu_text"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

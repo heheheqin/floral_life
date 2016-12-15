@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/list_image1"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_zhanwei" />
+
+
+    <ImageView
+        android:id="@+id/headImg"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:scaleType="centerCrop"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/list_image1"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="-25dp"
+        android:src="@drawable/personal_default_head" />
+
+    <ImageView
+        android:id="@+id/menu_v"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@id/headImg"
+        android:layout_alignRight="@id/headImg"
+        android:src="@drawable/menu_v_blue" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/identity"
+        android:textSize="15sp"
+        android:paddingRight="8dp"
+        android:layout_toLeftOf="@id/headImg"
+        android:text="CoCo" />
+
+    <TextView
+        android:id="@+id/identity"
+        android:paddingRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_alignBottom="@id/headImg"
+        android:layout_toLeftOf="@id/headImg"
+        android:text="空间设计师" />
+<!--  中部   -->
+    <TextView
+        android:id="@+id/name1"
+        style="@style/zhuanti_a_list_marginLieft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headImg"
+        android:text="[跨界鉴赏]"
+        android:textColor="@color/name_color"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/title1"
+        style="@style/zhuanti_a_list_marginLieft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name1"
+        android:layout_marginTop="5dp"
+        android:text="艺术于商业之间明白生活"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/desc"
+        style="@style/zhuanti_a_list_marginLieft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title1"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="5dp"
+        android:text="这是一个关于“蜗居”的故事，一个让自己更幸福的故事。"
+        android:textColor="@android:color/black"
+        android:maxLines="2"
+        android:textSize="11dp" />
+
+    <View
+        android:id="@+id/view"
+        style="@style/zhaunti_a_list_marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/desc"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/name_color" />
+<!--    下部  -->
+    <TextView
+        android:id="@+id/fnCommentNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="8dp"
+        android:text="18" />
+
+    <ImageView
+        android:id="@+id/conmmentImage"
+        style="@style/zhuanti_list_item_view_blow_"
+        android:layout_toLeftOf="@+id/fnCommentNum"
+        android:src="@drawable/community_item_pinglun" />
+
+    <TextView
+        android:id="@+id/share"
+        android:layout_toLeftOf="@+id/conmmentImage"
+        android:text="148"
+        style="@style/zhuanti_list_blow_view_text" />
+
+    <ImageView
+        android:id="@+id/shareImage"
+        style="@style/zhuanti_list_item_view_blow_"
+        android:layout_toLeftOf="@+id/share"
+        android:src="@drawable/community_item_collect" />
+
+    <TextView
+        android:id="@+id/read"
+        style="@style/zhuanti_list_blow_view_text"
+        android:layout_toLeftOf="@+id/shareImage"
+        android:text="1148" />
+
+    <ImageView
+        android:id="@+id/readImage"
+        style="@style/zhuanti_list_item_view_blow_"
+        android:layout_toLeftOf="@+id/read"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/detail_menu_eye" />
+
+</RelativeLayout>

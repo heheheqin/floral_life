@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_store_shop_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    tools:context="com.dream.will.floral_life.ui.StoreShopDetailActivity">
+
+    <include
+        android:id="@+id/head"
+        layout="@layout/acitvity_store_head"/>
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/refresh"
+        android:layout_height="0dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_width="match_parent"
+        android:layout_weight="12"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="1000"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+        cube_ptr:ptr_resistance="1.7"
+        >
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_below="@id/head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+    <include
+        android:id="@+id/bottom"
+        layout="@layout/acitviy_store_bottom"/>
+
+</LinearLayout>

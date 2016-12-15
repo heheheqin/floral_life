@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp">
+
+    <ImageView
+        android:id="@+id/list_image"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_zhanwei" />
+
+    <!--android:background="@drawable/abc_list_selector_disabled_holo_light"-->
+    <LinearLayout
+        android:background="@drawable/abc_list_selector_disabled_holo_light"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="TOP1"
+            style="@style/view_for_text_specialcolum" />
+        <View
+            style="@style/view_for_specialcolume"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_margin="15dp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="艺术于商业之间明白是是"
+            android:textSize="18dp" />
+
+        <View style="@style/view_for_specialcolume" />
+
+        <TextView
+            android:text="FLORAL FIFE"
+            style="@style/view_for_text_specialcolum" />
+    </LinearLayout>
+
+</RelativeLayout>

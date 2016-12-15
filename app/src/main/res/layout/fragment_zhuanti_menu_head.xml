@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:orientation="vertical">
+
+<ImageView
+    android:clickable="true"
+    android:id="@+id/image"
+    android:layout_width="match_parent"
+    android:src="@drawable/banner_zhanwei"
+    android:scaleType="centerCrop"
+    android:layout_height="130dp"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:id="@+id/image1"
+    android:clickable="true"
+    android:background="@drawable/abc_list_selector_disabled_holo_dark"
+    android:layout_height="130dp">
+
+    <TextView
+        android:id="@+id/enName"
+        android:text="TOP10"
+        android:textSize="15dp"
+        android:textColor="@color/menu_text"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_toRightOf="@+id/enName"
+        android:text="|"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/enName"
+        android:textColor="@color/menu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_toRightOf="@+id/divider"
+        android:text="本周精选"
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/enName"
+        android:textColor="@color/menu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+</RelativeLayout>
+
+
+</RelativeLayout>

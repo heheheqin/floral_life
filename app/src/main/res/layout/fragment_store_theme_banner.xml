@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <View
+            style="@style/xiaoheitiao" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="精选活动"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <RelativeLayout style="@style/shop_theme_banner_left_rela">
+
+            <ImageView
+                android:id="@+id/theme_banner_image1"
+                android:src="@drawable/shop_theme_fenlei"
+                style="@style/shop_theme_banner_image" />
+
+            <TextView
+                android:id="@+id/theme_banner_text1"
+                android:text="城市氧吧"
+                style="@style/shop_theme_banner_text1" />
+
+        </RelativeLayout>
+        <RelativeLayout style="@style/shop_theme_banner_right_rela">
+
+            <ImageView
+                android:id="@+id/theme_banner_image2"
+                android:src="@drawable/shop_theme_fenlei"
+                style="@style/shop_theme_banner_image" />
+
+            <TextView
+                android:id="@+id/theme_banner_text2"
+                android:text="圣诞市集"
+                style="@style/shop_theme_banner_text1" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="6dp">
+
+        <RelativeLayout style="@style/shop_theme_banner_left_rela">
+
+            <ImageView
+                android:id="@+id/theme_banner_image3"
+                android:src="@drawable/shop_theme_fenlei"
+                style="@style/shop_theme_banner_image" />
+
+            <TextView
+                android:id="@+id/theme_banner_text3"
+                android:text="北京专场"
+                style="@style/shop_theme_banner_text1" />
+
+        </RelativeLayout>
+        <RelativeLayout style="@style/shop_theme_banner_right_rela">
+
+            <ImageView
+                android:id="@+id/theme_banner_image4"
+                android:src="@drawable/shop_theme_fenlei"
+                style="@style/shop_theme_banner_image" />
+
+            <TextView
+                android:id="@+id/theme_banner_text4"
+                android:text="文艺生活"
+                style="@style/shop_theme_banner_text1" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

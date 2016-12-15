@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:orientation="vertical">
+    <!--danlei               -->
+    <!--danlei               -->
+    <!--danlei               -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua1"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic1"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName1"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua2"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic2"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName2"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua3"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic3"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName3"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua4"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic4"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName4"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--danlei               -->
+    <!--danlei               -->
+    <!--danlei               -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua5"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic5"
+                style="@style/shop_frist_item_image" />
+
+            <TextView
+                android:id="@+id/fnName5"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua6"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic6"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName6"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua7"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic7"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName7"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+        <!--单项-->
+        <LinearLayout
+            android:id="@+id/renqiehua8"
+            style="@style/shop_frist_iten_linearlayout">
+
+            <ImageView
+                android:id="@+id/fnPic8"
+                style="@style/shop_frist_item_image"
+                android:src="@drawable/xianhua" />
+
+            <TextView
+                android:id="@+id/fnName8"
+                style="@style/shop_frist_item_text"
+                android:text="人切花" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

@@ -2,7 +2,6 @@ package com.dream.will.floral_life.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -22,7 +21,7 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
-public class StoreShopDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class StoreShopDetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener {
 
 
     private ImageView back;
@@ -105,7 +104,7 @@ public class StoreShopDetailActivity extends AppCompatActivity implements View.O
 // 显示wwbView
 ///////////////////////////////////////////////////////////////////////////
     private void showWeb() {
-        //加载网址
+        //加载网址        http://app.htxq.net/shop/PGoodsAction/goodsDetail.do?goodsId=2f73836e-0d74-4f1b-b2b3-8bd47e9d28ee
         webView.loadUrl("http://app.htxq.net/shop/PGoodsAction/goodsDetail.do?goodsId=" + url);
     }
 

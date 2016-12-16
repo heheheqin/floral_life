@@ -2,7 +2,6 @@ package com.dream.will.floral_life.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.content.Conten;
 
-public class StoresFristItemDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class StoresFristItemDetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener {
 
     private TextView city;
     private TextView text_find;

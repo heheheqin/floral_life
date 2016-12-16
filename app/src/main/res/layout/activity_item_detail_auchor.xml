@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@android:color/white"
+    android:layout_marginBottom="1dp"
+    android:orientation="horizontal">
+
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/headImg"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/personal_default_head" />
+
+        <ImageView
+            android:id="@+id/menu_v"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@id/headImg"
+            android:layout_alignRight="@id/headImg"
+            android:src="@drawable/menu_v_blue" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginLeft="10dp"
+        android:text="CoCo" />
+    <TextView
+        android:id="@+id/subscibe_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginRight="5dp"
+        android:text="订阅人数200000" />
+
+    <Button
+        android:id="@+id/subscibe_button"
+        android:text="订阅"
+        android:textColor="@color/wt"
+        android:textSize="13sp"
+        android:background="@color/home_tab_black"
+        android:layout_width="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="25dp" />
+
+</LinearLayout>

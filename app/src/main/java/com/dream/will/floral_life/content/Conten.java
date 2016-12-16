@@ -57,4 +57,55 @@ public class Conten {
      * 商城精选活动 跳转  name
      */
     public static final String KEY_STORE_THEME_BANNER_NAME = "store_theme_banner_name";
+
+    /**
+     * 专题 跳转传递参数headImage
+     */
+    public static final String KEY_HEADIMAGE = "KEY_HEADIMAGE";
+    /**
+     * 专题 跳转传递参数 userName
+     */
+    public static final String KEY_USERNAME = "KEY_USERNAME";
+    /**
+     * 专题 跳转传递参数  KEY_SUBSCIBE_TEXT
+     */
+    public static final String KEY_SUBSCIBE_TEXT = "KEY_SUBSCIBE_TEXT";
+    /**
+     * 专题 跳转传递参数 smallImage
+     */
+    public static final String KEY_SMALLIMAGE = "KEY_SMALLIMAGE";
+    /**
+     * 专题 跳转传递参数 wenzhangbiaoti
+     */
+    public static final String KEY_WENZHANGBIAOTI = "KEY_WENZHANGBIAOTI";
+    /**
+     * 专题 跳转传递参数 wenzhangxiaobiaoti
+     */
+    public static final String KEY_WENZHANGXIAOBIAOTI = "KEY_WENZHANGXIAOBIAOTI";
+    /**
+     * 专题 跳转传递参数 desc
+     */
+    public static final String KEY_DESC = "KEY_DESC";
+    /**
+     * 专题 跳转传递参数 isVideo
+     */
+    public static final String KEY_ISVIDEO = "KEY_ISVIDEO";
+    /**
+     * 专题 跳转传递参数 KEY_VIDEOURL
+     */
+    public static final String KEY_VIDEOURL = "KEY_VIDEOURL";
+    /**
+     * 专题 跳转传递参数 KEY_getSubscibeNum
+     */
+    public static final String KEY_SUBSCIBENUM = "KEY_SUBSCIBENUM";
+    /**
+     * 专题 跳转传递参数 id
+     */
+    public static final String KEY_JUMP_ID = "KEY_JUMP_ID";
+    /**
+     * 专题 跳转传递参数 shareUtl
+     */
+    public static final String KEY_SHAREUTL = "KEY_SHAREUTL";
+
+
 }

@@ -17,6 +17,10 @@
     <style name="BaseActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
+    <style name="myAppThemeSwipe" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <style name="zhuanti_a_list_marginLieft">
         <item name="android:layout_marginLeft">8dp</item>
     </style>
@@ -153,6 +157,44 @@
         <item name="android:layout_width">15dp</item>
         <item name="android:layout_height">10dp</item>
         <item name="android:background">@color/shop_button_black</item>
+    </style>
+<!--android:visibility="gone"-->
+    <style name="view_line">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">8dp</item>
+        <item name="android:background">@color/bg</item>
+    </style>
+
+    <style name="view_text">
+        <item name="android:visibility">gone</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+<!--android:layerType="software" -->
+    <style name="view_imaginary">
+        <item name="android:layerType">software</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:background">@drawable/imaginaryline</item>
+    </style>
+
+    <style name="view_webview">
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="community_head">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
     </style>
 
 </resources>

@@ -174,7 +174,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    // 下载listview数据
+    // 下载listView数据
     ///////////////////////////////////////////////////////////////////////////
     private void initListData() {
         //http://api.htxq.net/cactus/index/getThemeGoods?city=%E5%85%A8%E5%9B%BD

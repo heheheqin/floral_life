@@ -3,7 +3,6 @@ package com.dream.will.floral_life.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -15,7 +14,7 @@ import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.content.Conten;
 import com.dream.will.floral_life.other.MyAsyncTack;
 
-public class WallpaperDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class WallpaperDetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener {
 
     private String url;
     private String name;

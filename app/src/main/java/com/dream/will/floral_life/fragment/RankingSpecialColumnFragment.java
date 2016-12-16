@@ -75,7 +75,6 @@ public class RankingSpecialColumnFragment extends Fragment {
 
             }
         });
-//        article.enqueue(new Callback<Article>() {
     }
 
     @Nullable
@@ -122,6 +121,7 @@ public class RankingSpecialColumnFragment extends Fragment {
                                 .load(resultBean.getSmallIcon())
                                 .error(R.drawable.banner_zhanwei)
                                 .placeholder(R.drawable.banner_zhanwei)
+                                .dontAnimate()
                                 .into(list_image);
                     }
                     break;
@@ -135,6 +135,7 @@ public class RankingSpecialColumnFragment extends Fragment {
                                 .load(resultBean.getSmallIcon())
                                 .error(R.drawable.banner_zhanwei)
                                 .placeholder(R.drawable.banner_zhanwei)
+                                .dontAnimate()
                                 .into(list_image);
                     }
                     break;

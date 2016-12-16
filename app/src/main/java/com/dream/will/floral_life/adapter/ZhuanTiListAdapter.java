@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class ZhuanTiListAdapter extends  AbsBaseAdapter2<Article.ResultBean> {
         Article.ResultBean resultBean = data.get(position);
         if (MyApp.getInstance().itemViewType == 0){
             ImageView list_image = (ImageView) viewHolder.findViewBid(R.id.list_image);
+            ImageView showVideoIcon = (ImageView) viewHolder.findViewBid(R.id.showVideoIcon);
             TextView title = (TextView) viewHolder.findViewBid(R.id.title);
             TextView name = (TextView) viewHolder.findViewBid(R.id.name);
             title.setText(resultBean.getTitle());
@@ -55,6 +57,11 @@ public class ZhuanTiListAdapter extends  AbsBaseAdapter2<Article.ResultBean> {
             Picasso.with(context)
                     .load(resultBean.getSmallIcon())
                     .into(list_image);
+            if (resultBean.isVideo()) {
+                showVideoIcon.setVisibility(View.VISIBLE);
+            }else {
+                showVideoIcon.setVisibility(View.GONE);
+            }
         }else {
             ImageView list_image1 = (ImageView) viewHolder.findViewBid(R.id.list_image1);
             final ImageView headImg = (ImageView) viewHolder.findViewBid(R.id.headImg);
@@ -76,6 +83,12 @@ public class ZhuanTiListAdapter extends  AbsBaseAdapter2<Article.ResultBean> {
             share.setText(resultBean.getShare()+"");
             read.setText(resultBean.getRead()+"");
 
+            ImageView showVideoIcon = (ImageView) viewHolder.findViewBid(R.id.showVideoIcon);
+            if (resultBean.isVideo()) {
+                showVideoIcon.setVisibility(View.VISIBLE);
+            }else {
+                showVideoIcon.setVisibility(View.GONE);
+            }
             //获取listview大图
             Glide.with(context)
                     .load(resultBean.getSmallIcon())

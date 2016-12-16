@@ -2,7 +2,6 @@ package com.dream.will.floral_life.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
@@ -33,7 +32,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DetailActivity extends AppCompatActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener,AbsListView.OnScrollListener {
+public class DetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener,AbsListView.OnScrollListener {
 
     private String cateId;
     private String name;

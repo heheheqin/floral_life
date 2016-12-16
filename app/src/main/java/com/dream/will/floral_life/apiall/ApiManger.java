@@ -29,6 +29,9 @@ public static final String ARTICLE = "/servlet/SysArticleServlet";
 
 //            下拉刷新  直接请求第一页
 
+
+
+
 //    专题 加载更多
 //    /servlet/SysArticleServlet
 //            action=mainList_NewVersion     &currentPageIndex=3      &cateId=
@@ -94,6 +97,14 @@ public static final String MENU = "/servlet/SysCategoryServlet";
      */
     public static final String STORE_LISTVIEW = "/cactus/index/getThemeGoods";
 
+/**
+ *   社区   精选
+ banner
+ /servlet/SysAdvertisingServlet
+ action=getAdList
+ */
+
+public static final String COMMUNITY_JINGXUAN_BANNER = "/servlet/SysAdvertisingServlet";
 
 
 

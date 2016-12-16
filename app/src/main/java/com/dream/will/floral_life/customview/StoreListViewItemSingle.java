@@ -1,6 +1,7 @@
 package com.dream.will.floral_life.customview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,8 @@ import com.bumptech.glide.Glide;
 import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.bean.StoreRecommendBanner;
 import com.dream.will.floral_life.bean.StoreThemeGoods;
+import com.dream.will.floral_life.content.Conten;
+import com.dream.will.floral_life.ui.StoreShopDetailActivity;
 
 /**
  * Author：Will on 2016/12/15 11:02
@@ -54,7 +57,7 @@ public class StoreListViewItemSingle extends LinearLayout {
      *
      * @param bean 资源
      */
-    public void setRes(StoreThemeGoods.DataBean.ThemeGoodsViewsBean bean, int wide,int high) {
+    public void setRes(final StoreThemeGoods.DataBean.ThemeGoodsViewsBean bean, int wide, int high) {
         Log.i("TAG", "setRes: ---------" + wide);
         LayoutParams layoutParams = (LayoutParams) imageView.getLayoutParams();
         layoutParams.width = wide;
@@ -70,6 +73,11 @@ public class StoreListViewItemSingle extends LinearLayout {
         imageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getContext(), StoreShopDetailActivity.class);
+                intent.putExtra(Conten.KEY_STORE_BANNER_TYPE,"0");
+                intent.putExtra(Conten.KEY_STORE_BANNER_URL,bean.getGoodsId());
+                intent.putExtra(Conten.KEY_STRORE_BANNER_TITLE,goodsName);
+                getContext().startActivity(intent);
                 Toast.makeText(getContext(), "选中："+goodsName+" 价钱："+price, Toast.LENGTH_SHORT).show();
             }
         });

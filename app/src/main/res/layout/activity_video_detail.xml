@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dream.will.floral_life.ui.VideoDetailActivity">
+
+    <include layout="@layout/acitvity_store_head" />
+
+    <ScrollView
+        android:background="@color/wt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <include layout="@layout/activity_item_detail_auchor" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <io.vov.vitamio.widget.VideoView
+                    android:visibility="gone"
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/percent"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/smallImage"
+                    android:src="@drawable/banner_zhanwei"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+                <ImageView
+                    android:id="@+id/videoImage"
+                    android:src="@drawable/main_detail_play"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/wenzhangbiaoti"
+                android:textSize="22sp"
+                android:text="花瓶的搭配技巧"
+                android:textColor="#000"
+                android:layout_marginTop="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/wenzhangxiaobiaoti"
+                android:textSize="14sp"
+                android:text="#花田秘籍#"
+                android:textColor="#000"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="30dp"
+                android:background="#000"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="1dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/bg"/>
+
+            <LinearLayout
+                android:background="@drawable/black_shape"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:text="序言"
+                    android:drawableBottom="@drawable/shop_location"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:text="@string/heheh"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        <!-- 第一个个webView-->
+            <View
+                android:id="@+id/linerView1"
+                style="@style/view_line" />
+
+            <TextView
+                android:id="@+id/contentTitle1"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text" />
+
+            <View android:id="@+id/imaginary1"
+                style="@style/view_imaginary" />
+
+            <WebView
+                android:id="@+id/webView"
+                style="@style/view_webview" />
+        <!-- 第er个个webView-->
+            <View
+                android:id="@+id/linerView2"
+                style="@style/view_line"/>
+
+            <TextView
+                android:id="@+id/contentTitle2"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text"  />
+
+            <View
+                android:id="@+id/imaginary2"
+                style="@style/view_imaginary"/>
+
+            <WebView
+                android:id="@+id/webView2"
+                style="@style/view_webview"
+                />
+        <!-- 第san个个webView-->
+            <View
+                android:id="@+id/linerView3"
+                style="@style/view_line"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/contentTitle3"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text"  />
+
+            <View
+                android:id="@+id/imaginary3"
+                style="@style/view_imaginary"/>
+
+            <WebView
+                android:id="@+id/webView3"
+                style="@style/view_webview"
+                />
+            <TextView
+                android:text="- -已经到底部了- -"
+                android:textSize="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <include
+        layout="@layout/activity_item_detail_bottom" />
+
+
+</LinearLayout>

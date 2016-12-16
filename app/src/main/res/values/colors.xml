@@ -14,5 +14,6 @@
     <color name="bg">#fafafa</color>
     <color name="bg_sig">#f1ecec</color>
     <color name="shop_button_gar">#a8a8a8</color>
+    <color name="heh">#e1dada</color>
     <color name="shop_button_black">#323232</color>
 </resources>

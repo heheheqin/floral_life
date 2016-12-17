@@ -13,6 +13,11 @@ public static final String HOST_POST = "http://app.htxq.net";
 //   GET 主机
 public static final String HOST_GET = "http://api.htxq.net";
 
+    /**
+     * 城市选择
+     */
+    public static final String HOST_CITY = "http://ikft.house.qq.com";
+
 //            首页
 //
 //    专题
@@ -107,6 +112,9 @@ public static final String MENU = "/servlet/SysCategoryServlet";
 public static final String COMMUNITY_JINGXUAN_BANNER = "/servlet/SysAdvertisingServlet";
 
 
-
+    /**
+     * 城市选择
+     */
+    public static final String CITY_SELECT = "/index.php?guid=866500021200250&devua=appkft_1080_1920_XiaomiMI4LTE_1.8.3_Android19&act=kftcitylistnew&channel=71&devid=866500021200250&appname=QQHouse&mod=appkft";
 
 }

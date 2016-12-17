@@ -3,6 +3,8 @@ package com.dream.will.floral_life.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.dream.will.floral_life.MyApp;
+
 /**
  * Author：Will on 2016/11/21 09:33
  * Mail：heheheqin.will@gmail.com
@@ -23,7 +25,7 @@ public class SharedUtils {
      * @return  返回是够第一次启动
      */
     public  static  boolean isFirstRun(Context context){
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = MyApp.getInstance().getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getBoolean(FIRST_RUN,true);
     }
 
@@ -31,10 +33,29 @@ public class SharedUtils {
      * @param context
      */
     public  static  void saveFirstRun(Context context){
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = MyApp.getInstance().getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putBoolean(FIRST_RUN,false);
         edit.commit();
+    }
+    /**保存 字段
+     * @param string
+     */
+    public  static  void saveString(String string){
+        SharedPreferences sharedPreferences = MyApp.getInstance().getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(string,true);
+        edit.commit();
+
+    }
+
+    /**判断字符串是否存在
+     * @param string
+     * @return  返回是够第一次启动
+     */
+    public  static  boolean isString(String string){
+        SharedPreferences sharedPreferences = MyApp.getInstance().getSharedPreferences(SHARED_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(string,false);
     }
 
 

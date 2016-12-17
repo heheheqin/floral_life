@@ -24,6 +24,7 @@ import com.dream.will.floral_life.customview.StoreFirstItemView;
 import com.dream.will.floral_life.customview.StoreRecommendBannerView;
 import com.dream.will.floral_life.customview.StoreThemeBannerView;
 import com.dream.will.floral_life.inter.IStore;
+import com.dream.will.floral_life.ui.CityChoiceActivity;
 import com.dream.will.floral_life.ui.StoresFristItemDetailActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -203,6 +204,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.i("TAG", "onFailure: -StoreThemeGoods--------");
+                refresh.refreshComplete();
             }
         });
     }
@@ -215,6 +217,8 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.city: {
                 Toast.makeText(getActivity(), "city", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CityChoiceActivity.class);
+                startActivity(intent);
             }
             break;
             case R.id.text_find: {

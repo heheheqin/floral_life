@@ -5,11 +5,14 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 /**
@@ -169,4 +172,39 @@ public class SDUtils {
     public static String getSDcardPath() {
         return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator;
     }
+
+
+    /**  从文件从获取字符串
+     * @param string
+     * @return
+     */
+    public  static  String getStringToFile(String string){
+
+        BufferedReader bufferedReader= null;
+        try {
+            bufferedReader = new  BufferedReader(new InputStreamReader(new FileInputStream(string)));
+            String read = null;
+            StringBuilder stringBuilder = new StringBuilder();
+            if ((read = bufferedReader.readLine()) != null){
+                stringBuilder.append(read);
+            }
+            return  stringBuilder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (bufferedReader != null){
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+        return null;
+
+    }
+
+
 }

@@ -39,6 +39,7 @@
         <activity android:name=".ui.StoresFristItemDetailActivity" />
         <activity android:name=".ui.TestActivity" />
         <activity android:name=".ui.VideoDetailActivity" />
+        <activity android:name=".ui.CityChoiceActivity" />
         <activity android:name=".ui.BaseSwipeBackActivityActivity"
             android:theme="@style/myAppThemeSwipe"/>
     </application>

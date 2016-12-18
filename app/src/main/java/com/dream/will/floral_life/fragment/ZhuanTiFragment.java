@@ -462,7 +462,7 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
                 Animation.RELATIVE_TO_SELF,0.5f);
         rotateAnimation.setDuration(500);
         rotateAnimation.setFillAfter(true);  //停在最后地方
-        rotateAnimation.setRepeatCount(0);
+        rotateAnimation.setRepeatCount(0);  //设置循环次数
         rotateAnimation.setInterpolator(new LinearInterpolator());
         image_menu.startAnimation(rotateAnimation);
     }

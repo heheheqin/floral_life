@@ -26,6 +26,7 @@ import com.dream.will.floral_life.customview.StoreThemeBannerView;
 import com.dream.will.floral_life.inter.IStore;
 import com.dream.will.floral_life.ui.CityChoiceActivity;
 import com.dream.will.floral_life.ui.StoresFristItemDetailActivity;
+import com.dream.will.floral_life.utils.OkUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -180,6 +181,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     private void initListData() {
         //http://api.htxq.net/cactus/index/getThemeGoods?city=%E5%85%A8%E5%9B%BD
         final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("store"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_GET)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
@@ -216,9 +218,10 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.city: {
-                Toast.makeText(getActivity(), "city", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "city", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), CityChoiceActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,2);
+//                startActivity(intent);
             }
             break;
             case R.id.text_find: {
@@ -227,6 +230,23 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
             case R.id.image_shop_car: {
             }
             break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Conten.KEY_CITY_CHOICE_REQUEST_CODE){
+            if (data !=null) {
+                String city = data.getStringExtra(Conten.KEY_CITY_CHOICE_RETURE);
+                this.city.setText(city);
+                refresh.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh.autoRefresh();
+                    }
+                });
+            }
         }
     }
 }

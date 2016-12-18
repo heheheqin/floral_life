@@ -23,6 +23,7 @@ import com.dream.will.floral_life.content.Conten;
 import com.dream.will.floral_life.customview.HandView;
 import com.dream.will.floral_life.inter.IWallpaper;
 import com.dream.will.floral_life.ui.WallpaperDetailActivity;
+import com.dream.will.floral_life.utils.OkUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -151,6 +152,7 @@ public class WallpaperFragment extends Fragment implements AbsListView.OnScrollL
     ///////////////////////////////////////////////////////////////////////////
     private void initDataBanner() {
         final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("wallpaper"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(ScalarsConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();

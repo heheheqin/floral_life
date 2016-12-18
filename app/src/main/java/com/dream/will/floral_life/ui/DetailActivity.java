@@ -19,6 +19,7 @@ import com.dream.will.floral_life.apiall.ApiManger;
 import com.dream.will.floral_life.bean.Article;
 import com.dream.will.floral_life.content.Conten;
 import com.dream.will.floral_life.inter.IZhuanTi;
+import com.dream.will.floral_life.utils.OkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,10 @@ public class DetailActivity extends BaseSwipeBackActivityActivity implements Vie
         initData();
     }
 
+
+    /**
+     * 网络请求数据
+     */
     private void initData() {
          /* menu_detail
             花艺学堂
@@ -67,6 +72,7 @@ public class DetailActivity extends BaseSwipeBackActivityActivity implements Vie
 	    post  action=mainList_NewVersion & currentPageIndex=0 & cateId=8dba5958-7da0-4ce9-b1e9-5b92343519a7
         */
         final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("DetailActivity"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(GsonConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();
@@ -159,6 +165,9 @@ public class DetailActivity extends BaseSwipeBackActivityActivity implements Vie
         zhuanTiListAdapter.notifyDataSetChanged();
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // 上啦加载更多
+    ///////////////////////////////////////////////////////////////////////////
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (isAddMore && scrollState == 0) {

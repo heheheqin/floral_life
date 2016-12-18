@@ -1,10 +1,14 @@
 package com.dream.will.floral_life.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.AppBarLayout;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -14,6 +18,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,7 +26,9 @@ import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.apiall.ApiManger;
 import com.dream.will.floral_life.bean.VideoDetailBean;
 import com.dream.will.floral_life.content.Conten;
+import com.dream.will.floral_life.customview.AppBarStateChangeListener;
 import com.dream.will.floral_life.inter.IZhuanTi;
+import com.dream.will.floral_life.utils.OkUtils;
 
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.widget.VideoView;
@@ -68,6 +75,9 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
             super.handleMessage(msg);
             //缓冲完毕 消失
             percentT.setVisibility(View.GONE);
+            if (Build.VERSION.SDK_INT >= 21) {
+                getWindow().setStatusBarColor(Color.TRANSPARENT);
+            }
         }
     };
     private TextView contentTitle1;
@@ -81,15 +91,30 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
     private View imaginary3;
     private WebView webView3;
     private View linerView1;
+    private AppBarLayout app_bar;
+    private Toolbar toolbar;
+    private String userNameT;
+    private String headImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_detail);
+        setContentView(R.layout.activity_video_article_detail);
+        if (Build.VERSION.SDK_INT >= 21) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setNavigationIcon(R.drawable.main_detail_back);
+        app_bar = (AppBarLayout) findViewById(R.id.app_bar);
+        initAppBar();
         Intent intent = getIntent();
-        String headImageUrl = intent.getStringExtra(Conten.KEY_HEADIMAGE);
+        headImageUrl = intent.getStringExtra(Conten.KEY_HEADIMAGE);
         String smallImageUrl = intent.getStringExtra(Conten.KEY_SMALLIMAGE);
-        String userNameT = intent.getStringExtra(Conten.KEY_USERNAME);
+        userNameT = intent.getStringExtra(Conten.KEY_USERNAME);
         String biaoTi = intent.getStringExtra(Conten.KEY_WENZHANGBIAOTI);
         String xiaoBiaoti = intent.getStringExtra(Conten.KEY_WENZHANGXIAOBIAOTI);
         String description = intent.getStringExtra(Conten.KEY_DESC);
@@ -98,7 +123,7 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         jumpId = intent.getStringExtra(Conten.KEY_JUMP_ID);
         isVideo = intent.getBooleanExtra(Conten.KEY_ISVIDEO, false);
         initView();
-        title.setText("详情");
+//        title.setText("详情");
         Glide.with(this).load(headImageUrl).into(headImg);
         Glide.with(this).load(smallImageUrl).dontAnimate().into(smallImage);
         userName.setText(userNameT);
@@ -116,6 +141,27 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         initWebView();
         //网络请求数据
         initData();
+    }
+
+    private void initAppBar() {
+        app_bar.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+            @Override
+            public void onStateChanged(AppBarLayout appBarLayout, State state) {
+                if( state == State.EXPANDED ) {
+                    //展开状态
+                    toolbar.setTitle("");
+                    Log.i("TAG", "onStateChanged: -EXPANDED--------");
+                }else if(state == State.COLLAPSED){
+                    //折叠状态
+                    Log.i("TAG", "onStateChanged: -COLLAPSED--------");
+                    toolbar.setTitle(userNameT);
+                }else {
+                    //中间状态
+                    Log.i("TAG", "onStateChanged: ---------");
+                    toolbar.setTitle("");
+                }
+            }
+        });
     }
 
     /**
@@ -140,9 +186,9 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         percentT = (TextView) findViewById(R.id.percent);
         videoView = (VideoView) findViewById(R.id.videoView);
         videoImage = (ImageView) findViewById(R.id.videoImage);
-        back = (ImageView) findViewById(R.id.back);
-        title = (TextView) findViewById(R.id.title);
-        share = (ImageView) findViewById(R.id.share);
+//        back = (ImageView) findViewById(R.id.back);
+//        title = (TextView) findViewById(R.id.title);
+//        share = (ImageView) findViewById(R.id.share);
         headImg = (ImageView) findViewById(R.id.headImg);
         menu_v = (ImageView) findViewById(R.id.menu_v);
         userName = (TextView) findViewById(R.id.userName);
@@ -156,11 +202,11 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         shareImage = (ImageView) findViewById(R.id.shareImage);
         read = (TextView) findViewById(R.id.read);
         readImage = (ImageView) findViewById(R.id.readImage);
-        activity_video_detail = (LinearLayout) findViewById(R.id.activity_video_detail);
+//        activity_video_detail = (LinearLayout) findViewById(R.id.activity_video_detail);
 
-        back.setOnClickListener(this);
+//        back.setOnClickListener(this);
         subscibe_button.setOnClickListener(this);
-        share.setOnClickListener(this);
+//        share.setOnClickListener(this);
         headImg.setOnClickListener(this);
         wenzhangbiaoti = (TextView) findViewById(R.id.wenzhangbiaoti);
         wenzhangxiaobiaoti = (TextView) findViewById(R.id.wenzhangxiaobiaoti);
@@ -194,6 +240,7 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
     ///////////////////////////////////////////////////////////////////////////
     private void initData() {
         Retrofit retrofit = new Retrofit.Builder()
+                .client(OkUtils.genericClient("videoDetail"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(GsonConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();
@@ -301,6 +348,14 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
 //                    intent.setDataAndType(Uri.parse(videoUrl), "video/mp4");
 //                    startActivity(intent);
 //                    break;
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.status));
+                        RelativeLayout.LayoutParams layoutParams =
+                                (RelativeLayout.LayoutParams) videoView.getLayoutParams();
+                        layoutParams.setMargins(0,getStatusBarHeight(),0,0);
+                        videoView.setLayoutParams(layoutParams);
+                        videoView.requestLayout();
+                    }
                     videoImage.setVisibility(View.GONE);
                     videoView.setVisibility(View.VISIBLE);
                     percentT.setVisibility(View.VISIBLE);
@@ -321,6 +376,14 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         }
     }
 
+    public int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // videoView

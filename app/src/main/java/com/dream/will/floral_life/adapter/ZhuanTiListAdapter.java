@@ -13,7 +13,6 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.dream.will.floral_life.MyApp;
 import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.bean.Article;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -54,8 +53,12 @@ public class ZhuanTiListAdapter extends  AbsBaseAdapter2<Article.ResultBean> {
             TextView name = (TextView) viewHolder.findViewBid(R.id.name);
             title.setText(resultBean.getTitle());
             name.setText("#"+resultBean.getCategory().getName()+"#");
-            Picasso.with(context)
+            Glide.with(context)
                     .load(resultBean.getSmallIcon())
+                    .asBitmap()
+                    .error(R.drawable.banner_zhanwei)
+                    .placeholder(R.drawable.banner_zhanwei)
+                    .dontAnimate()
                     .into(list_image);
             if (resultBean.isVideo()) {
                 showVideoIcon.setVisibility(View.VISIBLE);

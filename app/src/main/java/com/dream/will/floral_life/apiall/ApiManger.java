@@ -117,4 +117,13 @@ public static final String COMMUNITY_JINGXUAN_BANNER = "/servlet/SysAdvertisingS
      */
     public static final String CITY_SELECT = "/index.php?guid=866500021200250&devua=appkft_1080_1920_XiaomiMI4LTE_1.8.3_Android19&act=kftcitylistnew&channel=71&devid=866500021200250&appname=QQHouse&mod=appkft";
 
+    /**
+     * 每日精选
+     /servlet/UserBbsServlet
+     type=%E8%8D%90&pageSize=4&action=getJianOrJingList&currentPageIndex=0
+     type=%E8%8D%90&pageSize=4&action=getJianOrJingList&currentPageIndex=5
+     */
+    public static final String COMMUITY_JINGXUAN_LIST = "/servlet/UserBbsServlet";
+
+
 }

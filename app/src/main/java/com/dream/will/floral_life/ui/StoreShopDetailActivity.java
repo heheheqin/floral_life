@@ -81,7 +81,7 @@ public class StoreShopDetailActivity extends BaseSwipeBackActivityActivity imple
                 refresh.refreshComplete();
             }
 
-            @Override
+            @Override  //网页加载结束后返回 网页相关信息
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 return super.shouldOverrideUrlLoading(view, request);
             }
@@ -91,12 +91,10 @@ public class StoreShopDetailActivity extends BaseSwipeBackActivityActivity imple
                 return true;
             }
         });
-        webView.getSettings().setDisplayZoomControls(false);
-        webView.getSettings().setSupportZoom(true);
-        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        webView.getSettings().setJavaScriptEnabled(true);
-
-
+        webView.getSettings().setDisplayZoomControls(false);  //设置缩放控制图标不现实
+        webView.getSettings().setSupportZoom(true);  //设置可以缩放
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); //设置单行
+        webView.getSettings().setJavaScriptEnabled(true);  //可以接受JavaScript语句
 
     }
 

@@ -108,4 +108,16 @@ public class Conten {
     public static final String KEY_SHAREUTL = "KEY_SHAREUTL";
 
 
+    /**
+     * 城市选择 返回 参数
+     */
+    public static final String KEY_CITY_CHOICE_RETURE = "city_choice_reture";
+
+
+    /**
+     * 城市选择 返回 代码
+     */
+    public static final int KEY_CITY_CHOICE_REQUEST_CODE = 484;
+
+
 }

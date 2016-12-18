@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_detail"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dream.will.floral_life.ui.VideoDetailActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_detail_image_h"
+
+        app:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <!--
+        CollapsingToolbarLayout的2个重要属性:
+             必须要有： layout_scrollFlags=”scroll|exitUntilCollapsed”：向上滚动时收缩View，
+             但可以固定Toolbar，使Toolbar一直在上面，
+              enterAlways:使Toolbar不保留在上面 但是手指一向下滑动就出现
+                enterAlwaysCollapsed 不保留
+
+              app:expandedTitleMargin="33dp" 布局张开时候title与周边的距离
+              app:statusBarScrim="@color/colorAccent" statusBar颜色 不一定生效 建议在style文件中设置
+             app:contentScrim： 当CollapsingToolbarLayout折叠后背景颜色-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:statusBarScrim="@color/status"
+            app:contentScrim="@color/status"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <!--图片  视频-->
+            <include
+                android:fitsSystemWindows="true"
+
+                layout="@layout/activity_video_article_detail_head" />
+            <!-- CollapsingToolbarLayout子view，ImageView属性
+                layout_collapseMode=”parallax”：使ImageView跟随滚动的时候具有视差效果 图片向下走 设置为pin 图片向上走
+                layout_collapseParallaxMultiplier=”0.1”：视差因子，设置视差滚动因子，值为：0~1-
+                ：：：重点：：：：android:fitsSystemWindows="true" 使得一开始时状态栏 和 图片颜色融为一体
+                -->
+            <!--<ImageView-->
+                <!--android:fitsSystemWindows="true"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:src="@drawable/bg"-->
+                <!--app:layout_collapseMode="parallax"-->
+                <!--android:onClick="init"-->
+                <!--app:layout_collapseParallaxMultiplier="0.5"/>-->
+
+            <!--为了使Toolbar具有折叠的效果，Toolbar外面还要放一个CollapsingToolbarLayout布局容器，
+            CollapsingToolbarLayout里面放了一个ImageView和一个Toolbar，
+            并把这个CollapsingToolbarLayout放到AppBarLayout中作为一个整体。-->
+
+            <!-- CollapsingToolbarLayout子view，Toolbar属性
+                layout_collapseMode=”pin”：当CollapsingToolbarLayout完全收缩后，
+                Toolbar还可以保留在屏幕上。
+                这个属性不设置 在CollapsingToolbarLayout 中设置app:layout_scrollFlags="scroll|exitUntilCollapsed"就会保留
+                -->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:fitsSystemWindows="true"
+                android:layout_height="?attr/actionBarSize"
+                app:title=""
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:background="@color/wt"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<include layout="@layout/acitvity_store_head" />-->
+
+            <include layout="@layout/activity_item_detail_auchor" />
+
+
+
+
+            <TextView
+                android:id="@+id/wenzhangbiaoti"
+                android:textSize="22sp"
+                android:text="花瓶的搭配技巧"
+                android:textColor="#000"
+                android:layout_marginTop="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/wenzhangxiaobiaoti"
+                android:textSize="14sp"
+                android:text="#花田秘籍#"
+                android:textColor="#000"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="30dp"
+                android:background="#000"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/bg" />
+
+            <LinearLayout
+                android:background="@drawable/black_shape"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:text="序言"
+                    android:drawableBottom="@drawable/shop_location"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:text="@string/heheh"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <!-- 第一个个webView-->
+            <View
+                android:id="@+id/linerView1"
+                style="@style/view_line" />
+
+            <TextView
+                android:id="@+id/contentTitle1"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text" />
+
+            <View
+                android:id="@+id/imaginary1"
+                style="@style/view_imaginary" />
+
+            <WebView
+                android:id="@+id/webView"
+                style="@style/view_webview" />
+            <!-- 第er个个webView-->
+            <View
+                android:id="@+id/linerView2"
+                style="@style/view_line" />
+
+            <TextView
+                android:id="@+id/contentTitle2"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text" />
+
+            <View
+                android:id="@+id/imaginary2"
+                style="@style/view_imaginary" />
+
+            <WebView
+                android:id="@+id/webView2"
+                style="@style/view_webview" />
+            <!-- 第san个个webView-->
+            <View
+                android:id="@+id/linerView3"
+                style="@style/view_line" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/contentTitle3"
+                android:text="-圣诞婚礼-"
+                style="@style/view_text" />
+
+            <View
+                android:id="@+id/imaginary3"
+                style="@style/view_imaginary" />
+
+            <WebView
+                android:id="@+id/webView3"
+                style="@style/view_webview" />
+
+            <TextView
+                android:text="- -已经到底部了- -"
+                android:textSize="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include layout="@layout/activity_item_detail_bottom" />
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+

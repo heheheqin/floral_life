@@ -196,5 +196,12 @@
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>
     </style>
+<!--android:scaleType="centerCrop"-->
+    <style name="community_list_image">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 
 </resources>

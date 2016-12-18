@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +34,16 @@ public class CommunityFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("Community", "onCreate: -CommunityFragment--------");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_community, container, false);
-        //1 初始化shuju
-        viewpaget = (ViewPager) view.findViewById(R.id.viewpager);
-        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-        add = (ImageView) view.findViewById(R.id.add);
+
+        Log.i("Community", "onCreateView: -CommunityFragment" +
+                "--------" );
         return  view;
     }
 
@@ -58,8 +59,21 @@ public class CommunityFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        add.setOnClickListener(this);
+        //1 初始化shuju
+        viewpaget = (ViewPager) view.findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        add = (ImageView) view.findViewById(R.id.add);
         initData();
+        Log.i("Community", "onViewCreated: -CommunityFragment--------" );
+    }
+    String community =  "Community";
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Log.i(community, "onActivityCreated: -CommunityFragment--------");
+        add.setOnClickListener(this);
+
         //2 设置适配器
         viewpaget.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
             @Override
@@ -78,6 +92,30 @@ public class CommunityFragment extends Fragment implements View.OnClickListener 
         });
         //3 联动
         tabLayout.setupWithViewPager(viewpaget);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(community, "onResume: -CommunityFragment--------");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(community, "onPause: --CommunityFragment-------");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i(community, "onDestroyView: -CommunityFragment--------");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(community, "onDestroy: -CommunityFragment--------");
     }
 
     @Override

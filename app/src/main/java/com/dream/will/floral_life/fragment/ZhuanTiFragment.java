@@ -44,6 +44,8 @@ import com.dream.will.floral_life.inter.IZhuanTi;
 import com.dream.will.floral_life.ui.DetailActivity;
 import com.dream.will.floral_life.ui.RankingActivity;
 import com.dream.will.floral_life.ui.VideoDetailActivity;
+import com.dream.will.floral_life.utils.InternetUtils;
+import com.dream.will.floral_life.utils.OkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -167,11 +169,16 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
      * 加载listView数据
      */
     private void getArticle() {
+        if (InternetUtils.isNetworkReachable(getContext())){
+            refresh.refreshComplete();
+            return;
+        }
         //标志为下拉刷新
         if (isRefresh) {
             currentPageIndex = 0;
         }
         Retrofit retrofit = new Retrofit.Builder()
+                .client(OkUtils.genericClient("zhuanti"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(GsonConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();
@@ -227,7 +234,13 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
      * 加载菜单数据
      */
     private void initMenuData() {
-        Retrofit re = new Retrofit.Builder()
+        if (InternetUtils.isNetworkReachable(getContext())){
+            refresh.refreshComplete();
+            return;
+        }
+
+        final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("menu"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(GsonConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();
@@ -238,6 +251,9 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
             public void onResponse(Call<MenuBean> call, Response<MenuBean> response) {
                 Log.i("TAG", "onResponse: -------获取menu 数据成功--");
                 MenuBean body = response.body();
+                if ("".equals(body.getResult())){
+                    return;
+                }
                 MenuBean.ResultBean e = body.getResult().get(0);
                 menuHeadData.add(e);
                 for (MenuBean.ResultBean resultBean : body.getResult()) {

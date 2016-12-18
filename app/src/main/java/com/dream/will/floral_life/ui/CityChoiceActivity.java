@@ -252,7 +252,6 @@ public class CityChoiceActivity extends BaseSwipeBackActivityActivity implements
            //获取intent  返回到home界面
            Intent intent= getIntent();
            String cityN = null;
-           String cityI = null;
 //           if (position == 0){
 //               cityN = ((TextView)view.findViewById(R.id.item_city)).getText().toString().trim();
 //               for (int i = 0; i < data.size(); i++) {
@@ -261,14 +260,10 @@ public class CityChoiceActivity extends BaseSwipeBackActivityActivity implements
 //                   }
 //               }
 //           }else {
-//               cityN = data.get(position-1).getCityname();
-//               cityI = data.get(position-1).getCityid();
+               cityN = data.get(position-1).getCityname();
 //           }
-//           L.d("onItemClick+cityId:::"+cityI);
-//           L.d("onItemClick+cityName:::"+cityN);
-//           intent.putExtra(IntentUtils.KEY_CITYNAME,cityN);
-//           intent.putExtra(IntentUtils.KEY_CITYID,cityI);
-//           setResult(1,intent);
+           intent.putExtra(Conten.KEY_CITY_CHOICE_RETURE,cityN);
+           setResult(Conten.KEY_CITY_CHOICE_REQUEST_CODE,intent);
            finish();
        }
     }

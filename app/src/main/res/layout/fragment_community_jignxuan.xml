@@ -21,6 +21,7 @@
        <ListView
            android:id="@+id/communityJingxuanlistView"
            android:layout_width="match_parent"
+           android:dividerHeight="5dp"
            android:layout_height="match_parent"/>
 
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>

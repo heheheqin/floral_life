@@ -15,6 +15,7 @@ import com.dream.will.floral_life.apiall.ApiManger;
 import com.dream.will.floral_life.bean.CommunityJingxuanBanner;
 import com.dream.will.floral_life.inter.ICommunity;
 import com.dream.will.floral_life.ui.StoreShopDetailActivity;
+import com.dream.will.floral_life.utils.OkUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.youth.banner.Banner;
@@ -85,6 +86,7 @@ public class BannerViewForCommunity extends FrameLayout implements OnBannerClick
     public  void  setCityId(){
         //retrofit 联网加载数据
         final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("bannerViewCommunity"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();

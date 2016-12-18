@@ -15,6 +15,7 @@ import com.dream.will.floral_life.bean.StoreBanner;
 import com.dream.will.floral_life.content.Conten;
 import com.dream.will.floral_life.inter.IStore;
 import com.dream.will.floral_life.ui.StoreShopDetailActivity;
+import com.dream.will.floral_life.utils.OkUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -82,6 +83,7 @@ public class BannerView extends FrameLayout implements OnBannerClickListener {
     public  void  setCityId(String cityId){
         //retrofit 联网加载数据
         final Retrofit re = new Retrofit.Builder()
+                .client(OkUtils.genericClient("bannerView"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_GET)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

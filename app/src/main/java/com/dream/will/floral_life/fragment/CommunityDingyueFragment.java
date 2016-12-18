@@ -32,4 +32,9 @@ public class CommunityDingyueFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+
+
+
+
+
 }

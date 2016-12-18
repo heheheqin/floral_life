@@ -34,20 +34,17 @@ public class MyAsyncTack extends AsyncTask<String, Integer, Bitmap> {
 
     @Override
     protected void onPreExecute() {
-        // TODO Auto-generated method stub
         super.onPreExecute();
 
     }
 
     @Override
     protected void onProgressUpdate(Integer... values) {
-        // TODO Auto-generated method stub
         super.onProgressUpdate(values);
     }
 
     @Override
     protected Bitmap doInBackground(String... params) {
-        // TODO Auto-generated method stub
         Bitmap bitmap = null;
         URL url;
         try {
@@ -58,7 +55,6 @@ public class MyAsyncTack extends AsyncTask<String, Integer, Bitmap> {
             bitmap = BitmapFactory.decodeStream(inputStream);
             inputStream.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             if (openConnection != null) {
@@ -70,7 +66,6 @@ public class MyAsyncTack extends AsyncTask<String, Integer, Bitmap> {
 
     @Override
     protected void onPostExecute(Bitmap result) {
-        // TODO Auto-generated method stub
         super.onPostExecute(result);
         if (result != null) {
             String s = MD5Utils.md5(path);

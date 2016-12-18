@@ -240,7 +240,6 @@ public class WallpaperFragment extends Fragment implements AbsListView.OnScrollL
     ///////////////////////////////////////////////////////////////////////////
     // 上拉加载
     ///////////////////////////////////////////////////////////////////////////
-
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (isAddMore  && scrollState == 0) {

@@ -52,6 +52,7 @@ public class WallpaperAdaper extends  AbsBaseAdapter2<WallpaperList.ResultBean> 
         image2 = (ImageView) viewHolder.findViewBid(R.id.image2);
         image3 = (ImageView) viewHolder.findViewBid(R.id.image3);
         image4 = (ImageView) viewHolder.findViewBid(R.id.image4);
+        // TODO: 2016/12/18 glide在图片加载过程可能出现第一次加载 图片宽高和拉伸不适应  需要讲动画去掉
         Glide.with(context)
                 .load(resultBean.getWallpapers().get(0).getSnapImg())
                 .placeholder(R.drawable.banner_zhanwei)

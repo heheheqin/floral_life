@@ -98,10 +98,7 @@ public class VideoView extends SurfaceView implements MediaController.MediaPlaye
       Log.d("onPrepared");
 			mCurrentState = STATE_PREPARED;
 			// mTargetState = STATE_PLAYING;
-
 			// Get the capabilities of the player for this stream
-			//TODO mCanPause
-
       if (mOnPreparedListener != null)
         mOnPreparedListener.onPrepared(mMediaPlayer);
       if (mMediaController != null)

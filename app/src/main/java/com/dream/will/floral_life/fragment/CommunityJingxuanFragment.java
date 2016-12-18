@@ -67,6 +67,7 @@ public class CommunityJingxuanFragment extends Fragment implements AbsListView.O
         listView = (ListView) view.findViewById(R.id.communityJingxuanlistView);
         // TODO: 2016/12/17 fragment在viewPager中不能使用查找父控件来生成view 在添加给listview头部
         inflate = (LinearLayout) inflater.inflate(R.layout.fragment_community_jingxuan_list_head, null);
+//        inflate = (LinearLayout) inflater.inflate(R.layout.fragment_community_jingxuan_list_head, container,false);
         return  view;
     }
 

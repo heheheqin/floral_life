@@ -1,11 +1,13 @@
 package com.dream.will.floral_life.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,7 +17,9 @@ import com.dream.will.floral_life.R;
 import com.dream.will.floral_life.adapter.AbsBaseAdapter2;
 import com.dream.will.floral_life.apiall.ApiManger;
 import com.dream.will.floral_life.bean.SpecialColumnBean;
+import com.dream.will.floral_life.content.Conten;
 import com.dream.will.floral_life.inter.IZhuanTi;
+import com.dream.will.floral_life.ui.VideoDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +37,7 @@ import static com.dream.will.floral_life.R.id.title1;
  * Mail：heheheqin.will@gmail.com
  */
 
-public class RankingSpecialColumnFragment extends Fragment {
+public class RankingSpecialColumnFragment extends Fragment implements AdapterView.OnItemClickListener{
 
     List<SpecialColumnBean.ResultBean> data;
     private ListView listview;
@@ -145,7 +149,25 @@ public class RankingSpecialColumnFragment extends Fragment {
             }
         };
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(this);
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        SpecialColumnBean.ResultBean resultBean = data.get(position);
+        Intent intent = new Intent(getActivity(), VideoDetailActivity.class);
+        intent.putExtra(Conten.KEY_HEADIMAGE,"http://static.htxq.net/UploadFiles/headimg/20160422164405309.jpg");
+        intent.putExtra(Conten.KEY_SMALLIMAGE,resultBean.getSmallIcon());
+        intent.putExtra(Conten.KEY_USERNAME,"花田小憩");
+        intent.putExtra(Conten.KEY_SUBSCIBENUM,resultBean.getFnCommentNum());
+        intent.putExtra(Conten.KEY_WENZHANGBIAOTI,resultBean.getTitle());
+        intent.putExtra(Conten.KEY_WENZHANGXIAOBIAOTI,"#本周十佳#");
+        intent.putExtra(Conten.KEY_DESC,resultBean.getDesc());
+        intent.putExtra(Conten.KEY_ISVIDEO,resultBean.isVideo());
+        intent.putExtra(Conten.KEY_VIDEOURL,resultBean.getVideoUrl());
+        intent.putExtra(Conten.KEY_JUMP_ID,resultBean.getId());
+        intent.putExtra(Conten.KEY_SHAREUTL,resultBean.getSharePageUrl());
+        startActivity(intent);
+    }
 }

@@ -32,7 +32,7 @@ public class HomeActivity extends BaseActivity {
     private String[] tabTextsName = {
             "专题", "壁纸", "社区", "商城","我的"
     };
-    //tab图标
+    //tab图标    使用选择器
     private int[] imgIds = {
             R.drawable.home_select_tab_03,
             R.drawable.home_select_tab_05,
@@ -56,7 +56,6 @@ public class HomeActivity extends BaseActivity {
         fragment = (FrameLayout) findViewById(R.id.fragment);
         tabcontent = (FrameLayout) findViewById(android.R.id.tabcontent);
         tabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-
         /**
          *参数三：要现实Fragment容器ID
          */

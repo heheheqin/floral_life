@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener,AbsListView.OnScrollListener {
+public class DetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener,AbsListView.OnScrollListener,AdapterView.OnItemClickListener {
 
     private String cateId;
     private String name;
@@ -118,6 +119,7 @@ public class DetailActivity extends BaseSwipeBackActivityActivity implements Vie
                 R.layout.fragment_zhuanti_list_item2);
         listview.setAdapter(zhuanTiListAdapter);
         listview.setOnScrollListener(this);
+        listview.setOnItemClickListener(this);
         //设置刷新
         refresh = (PtrClassicFrameLayout) findViewById(R.id.refresh);
         //刷新时间
@@ -179,5 +181,27 @@ public class DetailActivity extends BaseSwipeBackActivityActivity implements Vie
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         isAddMore = firstVisibleItem + visibleItemCount == totalItemCount;
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // listView  监听
+    ///////////////////////////////////////////////////////////////////////////
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Article.ResultBean resultBean = data.get(position);
+        Intent intent = new Intent(this, VideoDetailActivity.class);
+        intent.putExtra(Conten.KEY_HEADIMAGE,resultBean.getAuthor().getHeadImg());
+        intent.putExtra(Conten.KEY_SMALLIMAGE,resultBean.getSmallIcon());
+        intent.putExtra(Conten.KEY_USERNAME,resultBean.getAuthor().getUserName());
+        intent.putExtra(Conten.KEY_SUBSCIBENUM,resultBean.getAuthor().getSubscibeNum());
+        intent.putExtra(Conten.KEY_WENZHANGBIAOTI,resultBean.getTitle());
+        intent.putExtra(Conten.KEY_WENZHANGXIAOBIAOTI,"#"+resultBean.getCategory().getName()+"#");
+        intent.putExtra(Conten.KEY_DESC,resultBean.getDesc());
+        intent.putExtra(Conten.KEY_ISVIDEO,resultBean.isVideo());
+        intent.putExtra(Conten.KEY_VIDEOURL,resultBean.getVideoUrl());
+        intent.putExtra(Conten.KEY_JUMP_ID,resultBean.getId());
+        intent.putExtra(Conten.KEY_SHAREUTL,resultBean.getSharePageUrl());
+        startActivity(intent);
     }
 }

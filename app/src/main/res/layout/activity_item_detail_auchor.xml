@@ -53,7 +53,7 @@
         android:text="订阅"
         android:textColor="@color/wt"
         android:textSize="13sp"
-        android:background="@color/home_tab_black"
+        android:background="@color/status"
         android:layout_width="60dp"
         android:layout_marginRight="10dp"
         android:layout_height="25dp" />

@@ -134,6 +134,12 @@ public class CommunityJingxuanFragment extends Fragment implements AbsListView.O
                 isRefresh = true;
             }
         });
+        refresh.post(new Runnable() {
+            @Override
+            public void run() {
+                refresh.autoRefresh();
+            }
+        });
     }
 
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.AppBarLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +39,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class VideoDetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener {
+public class VideoDetailActivity extends BaseSwipeBackActivityActivity implements View.OnClickListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener,NestedScrollView.OnScrollChangeListener {
 
     private ImageView back;
     private TextView title;
@@ -75,9 +76,7 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
             super.handleMessage(msg);
             //缓冲完毕 消失
             percentT.setVisibility(View.GONE);
-            if (Build.VERSION.SDK_INT >= 21) {
-                getWindow().setStatusBarColor(Color.TRANSPARENT);
-            }
+
         }
     };
     private TextView contentTitle1;
@@ -95,6 +94,7 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
     private Toolbar toolbar;
     private String userNameT;
     private String headImageUrl;
+    private NestedScrollView ns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +110,9 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setNavigationIcon(R.drawable.main_detail_back);
         app_bar = (AppBarLayout) findViewById(R.id.app_bar);
+        ns = (NestedScrollView) findViewById(R.id.ns);
+        ns.setOnScrollChangeListener(this);
+
         initAppBar();
         Intent intent = getIntent();
         headImageUrl = intent.getStringExtra(Conten.KEY_HEADIMAGE);
@@ -153,8 +156,9 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
                     Log.i("TAG", "onStateChanged: -EXPANDED--------");
                 }else if(state == State.COLLAPSED){
                     //折叠状态
+                    // TODO: 2016/12/18 设置了 标题之后不能设置回来
                     Log.i("TAG", "onStateChanged: -COLLAPSED--------");
-                    toolbar.setTitle(userNameT);
+                    toolbar.setTitle("");
                 }else {
                     //中间状态
                     Log.i("TAG", "onStateChanged: ---------");
@@ -400,6 +404,9 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         videoImage.setVisibility(View.VISIBLE);
         smallImage.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
     }
 
     @Override
@@ -413,10 +420,20 @@ public class VideoDetailActivity extends BaseSwipeBackActivityActivity implement
         if (what == MediaPlayer.MEDIA_INFO_BUFFERING_START) { //缓冲开始
             percentT.setText("当前网速:" + extra + "kb/s");
         } else if (what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {//缓冲结束
+            percentT.setText("缓冲结束");
             handler.sendEmptyMessageDelayed(0, 2000);
         } else if (what == MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED) { //下载速率变化
             percentT.setText("当前网速:" + extra + "kb/s");
         }
         return false;
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // NestedScrollView监听
+    ///////////////////////////////////////////////////////////////////////////
+    @Override
+    public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//        ns.scrollTo(0,scrollY+500);
     }
 }

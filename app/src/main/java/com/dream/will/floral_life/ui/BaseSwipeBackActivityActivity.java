@@ -5,6 +5,9 @@ import android.os.Bundle;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
+/**
+ * 支持手势   左滑返回
+ */
 public class BaseSwipeBackActivityActivity extends SwipeBackActivity {
 
     @Override

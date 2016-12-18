@@ -7,5 +7,5 @@
     <dimen name="shop_recommend_banner_image_h">240dp</dimen>
     <dimen name="shop_theme_banner_image_m_left">10dp</dimen>
     <dimen name="shop_theme_banner_image_m_middle">3dp</dimen>
-    <dimen name="activity_detail_image_h">240dp</dimen>
+    <dimen name="activity_detail_image_h">230dp</dimen>
 </resources>

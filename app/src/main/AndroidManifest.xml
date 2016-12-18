@@ -28,17 +28,24 @@
         <activity
             android:name=".ui.BaseActivity"
             android:configChanges="keyboard|orientation|screenSize" />
-        <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.ArticleActivity" />
-        <activity android:name=".ui.RankingActivity" />
-        <activity android:name=".ui.DetailActivity" />
+        <activity android:name=".ui.HomeActivity"
+            />
+        <activity android:name=".ui.ArticleActivity"
+            android:theme="@style/myAppThemeSwipe"/>
+        <activity android:name=".ui.RankingActivity"
+            android:theme="@style/myAppThemeSwipe"/>
+        <activity android:name=".ui.DetailActivity"
+            android:theme="@style/myAppThemeSwipe"/>
         <activity
             android:name=".ui.WallpaperDetailActivity"
             android:theme="@style/StartActivityTheme" />
-        <activity android:name=".ui.StoreShopDetailActivity" />
-        <activity android:name=".ui.StoresFristItemDetailActivity" />
+        <activity android:name=".ui.StoreShopDetailActivity"
+            android:theme="@style/myAppThemeSwipe"/>
+        <activity android:name=".ui.StoresFristItemDetailActivity"
+            android:theme="@style/myAppThemeSwipe"/>
         <activity android:name=".ui.TestActivity" />
-        <activity android:name=".ui.VideoDetailActivity" />
+        <activity android:name=".ui.VideoDetailActivity"
+            android:theme="@style/myAppThemeSwipe"/>
         <activity android:name=".ui.CityChoiceActivity" />
         <activity android:name=".ui.BaseSwipeBackActivityActivity"
             android:theme="@style/myAppThemeSwipe"/>

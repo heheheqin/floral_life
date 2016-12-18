@@ -44,7 +44,6 @@ import com.dream.will.floral_life.inter.IZhuanTi;
 import com.dream.will.floral_life.ui.DetailActivity;
 import com.dream.will.floral_life.ui.RankingActivity;
 import com.dream.will.floral_life.ui.VideoDetailActivity;
-import com.dream.will.floral_life.utils.InternetUtils;
 import com.dream.will.floral_life.utils.OkUtils;
 
 import java.util.ArrayList;
@@ -169,10 +168,11 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
      * 加载listView数据
      */
     private void getArticle() {
-        if (InternetUtils.isNetworkReachable(getContext())){
-            refresh.refreshComplete();
-            return;
-        }
+//        if (!InternetUtils.isNetworkReachable(getContext())){
+//            Toast.makeText(getActivity(), "网络不可用", Toast.LENGTH_LONG).show();
+//            refresh.refreshComplete();
+//            return;
+//        }
         //标志为下拉刷新
         if (isRefresh) {
             currentPageIndex = 0;
@@ -196,7 +196,7 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
                 }
                 Article body = response.body();
                 Log.i("TAG", "onResponse: ---------" + body);
-                if (body.getResult() == null) {
+                if (body == null) {
                     Toast.makeText(getActivity(), "没有更多啦！", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -234,10 +234,11 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
      * 加载菜单数据
      */
     private void initMenuData() {
-        if (InternetUtils.isNetworkReachable(getContext())){
-            refresh.refreshComplete();
-            return;
-        }
+//        if (InternetUtils.isNetworkReachable(getContext())){
+//            Toast.makeText(getActivity(), "网络不可用", Toast.LENGTH_LONG).show();
+//            refresh.refreshComplete();
+//            return;
+//        }
 
         final Retrofit re = new Retrofit.Builder()
                 .client(OkUtils.genericClient("menu"))  ///设置缓存
@@ -249,9 +250,9 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
         call.enqueue(new Callback<MenuBean>() {
             @Override
             public void onResponse(Call<MenuBean> call, Response<MenuBean> response) {
-                Log.i("TAG", "onResponse: -------获取menu 数据成功--");
                 MenuBean body = response.body();
-                if ("".equals(body.getResult())){
+                Log.i("TAG", "onResponse: -------获取menu 数据成功--"+body);
+                if (body == null){
                     return;
                 }
                 MenuBean.ResultBean e = body.getResult().get(0);

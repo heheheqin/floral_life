@@ -3,6 +3,7 @@ package com.dream.will.floral_life.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 /**
  * Author：Will on 2016/12/17 17:29
@@ -21,6 +22,7 @@ public class InternetUtils {
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo current = cm.getActiveNetworkInfo();
         if (current == null) {
+            Log.i("TAG", "isNetworkReachable: -current == null--------");
             return false;
         }
         return (current.isAvailable());

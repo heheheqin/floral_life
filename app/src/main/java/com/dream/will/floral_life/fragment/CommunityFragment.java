@@ -41,7 +41,6 @@ public class CommunityFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_community, container, false);
-
         Log.i("Community", "onCreateView: -CommunityFragment" +
                 "--------" );
         return  view;
@@ -75,7 +74,7 @@ public class CommunityFragment extends Fragment implements View.OnClickListener 
         add.setOnClickListener(this);
 
         //2 设置适配器
-        viewpaget.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+        viewpaget.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 return fragments[position];

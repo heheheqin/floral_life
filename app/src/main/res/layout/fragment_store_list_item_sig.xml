@@ -14,6 +14,7 @@
     <TextView
         android:id="@+id/goodsName"
         android:text="转运竹"
+        android:layout_marginLeft="8dp"
         android:textSize="11sp"
         android:layout_marginTop="6dp"
         android:layout_width="wrap_content"
@@ -22,6 +23,7 @@
         android:id="@+id/price"
         android:text="$48"
         android:textSize="11sp"
+        android:layout_marginLeft="8dp"
         android:textColor="#e2c14b"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"

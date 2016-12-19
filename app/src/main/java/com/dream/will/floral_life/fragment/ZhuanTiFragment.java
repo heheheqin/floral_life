@@ -178,7 +178,7 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
             currentPageIndex = 0;
         }
         Retrofit retrofit = new Retrofit.Builder()
-                .client(OkUtils.genericClient("zhuanti"))  ///设置缓存
+//                .client(OkUtils.genericClient("zhuanti"))  ///设置缓存
                 .baseUrl(ApiManger.HOST_POST)//★这里最后面必须能带“/”
                 .addConverterFactory(GsonConverterFactory.create())//设置将json解析为javabean所用的方式
                 .build();
@@ -200,20 +200,25 @@ public class ZhuanTiFragment extends Fragment implements View.OnClickListener, C
                     Toast.makeText(getActivity(), "没有更多啦！", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                for (Article.ResultBean resultBean : body.getResult()) {
-                    if (isVideo) {
-                        videoData.add(resultBean);
-                    } else {
-                        articleData.add(resultBean);
+                try{
+
+                    for (Article.ResultBean resultBean : body.getResult()) {
+                        if (isVideo) {
+                            videoData.add(resultBean);
+                        } else {
+                            articleData.add(resultBean);
+                        }
                     }
+                    dataShow.clear();
+                    if (isVideo){
+                        dataShow.addAll(videoData);
+                    }else {
+                        dataShow.addAll(articleData);
+                    }
+                    zhuanTiListAdapter.notifyDataSetChanged();
+                }catch (Exception e){
+
                 }
-                dataShow.clear();
-                if (isVideo){
-                    dataShow.addAll(videoData);
-                }else {
-                    dataShow.addAll(articleData);
-                }
-                zhuanTiListAdapter.notifyDataSetChanged();
                 //结束刷新状态
                 Log.i("TAG", "onResponse: ---1------");
                 refresh.refreshComplete();

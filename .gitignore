@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+/vitamioLibs/build
+/vitamioLibs/.idea
+.idea
